@@ -25,26 +25,14 @@
   <div class="wrapper wrapper--w680">
     <div class="card card-4">
       <div class="card-body">
-        <form
-          *ngIf="!isSuccessful"
-          name="form"
-          (ngSubmit)="f.form.valid && onSubmit()"
-          #f="ngForm"
-          novalidate
-        >
+
+
+<form *ngIf="!isSuccessful" name="form"  (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
           <div class="row row-space">
             <label class="label my-2" for="username">Username</label>
-            <input
-              type="text"
-              class="input--style-4"
-              name="username"
-              [(ngModel)]="form.username"
-              required
-              minlength="3"
-              maxlength="20"
-              #username="ngModel"
-            />
-            <div class="alert-danger" *ngIf="username.errors && f.submitted">
+ <input type="text"  class="input--style-4"   name="username"   [(ngModel)]="form.username"  required  minlength="3"  maxlength="20"  #username="ngModel" />
+            
+   <div class="alert-danger" *ngIf="username.errors && f.submitted">
               <div *ngIf="username.errors.required">Username is required</div>
               <div *ngIf="username.errors.minlength">
                 Username must be at least 3 characters
@@ -110,7 +98,7 @@
               #password="ngModel"
             />
 
-            
+            <div class="mb-3"> <a routerLink="/forgot"> Forgot Password? </a> </div>
 
             <label class="label my-2" for="dateNaissance"
               >Date de naissance :
@@ -133,10 +121,7 @@
             <button class="btn btn--radius-2 btn--blue">Sign Up</button>
           </div>
 
-          <div
-            class="alert alert-warning"
-            *ngIf="f.submitted && isSignUpFailed"
-          >
+          <div  class="alert alert-warning"  *ngIf="f.submitted && isSignUpFailed"  >
             Signup failed!<br />{{ errorMessage }}
           </div>
         </form>

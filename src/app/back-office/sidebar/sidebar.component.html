@@ -2,8 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
-    <img src="../../../assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Admin Panel</span>
+    <span class="brand-text font-weight-light">&nbsp;&nbsp;&nbsp; -- DASHBOARD -- </span>
   </a>
 
   <!-- Sidebar -->
@@ -19,50 +18,133 @@
              with font-awesome or any other icon font library -->       
           
              
-              <li  class="nav-item ml-2">
-                <a [routerLink]="['/back/user/addadmin']" class="nav-link">
-                  <i class="fas fa-road"></i>
-                  <p>
-                    Users 
-                  </p>
-                </a>
-              </li>
-              <li  class="nav-item ml-2">
-                <a [routerLink]="['/back/user/chart']" class="nav-link">
-                  <i class="fas fa-road"></i>
-                  <p>
-                   Charte categorie clients
-                  </p>
-                </a>
-              </li>
-        <li  class="nav-item ml-2">
-          <a [routerLink]="['/back/stock']" class="nav-link">
-            <i class="fas fa-cubes"></i>
-            <p>
-              MODULE3
-            </p>
-          </a>
-        </li>
+             <li  class="nav-item ml-2">
+              <a [routerLink]="['/back/user/addadmin']" class="nav-link">
+                <i class="fas fa-road"></i>
+                <p>
+                  &nbsp;&nbsp;   Users 
+                </p>
+              </a>
+            </li>
+          
 
 
-        
+            <li class="nav-item menu"> <a href="#" class="nav-link active"> <i class="nav-icon fas fa-tachometer-alt">
+            </i><p> Complaint <i class="right fas fa-angle-left"></i>  </p></a><ul class="nav nav-treeview">
+           <li class="nav-item"> <a routerLink="create" class="nav-link"> <i class="far fa-circle nav-icon"></i> <p>Create Complaint</p></a> </li>
+            <li class="nav-item">  <a routerLink="read" class="nav-link"> <i class="far fa-circle nav-icon"></i>  <p>Read Complaint</p> </a> </li>
+              </ul></li>
+                   
+             <li class="nav-item menu"> <a href="#" class="nav-link active"> <i class="nav-icon fas fa-tachometer-alt"></i>
+                         <p>  Appointment  <i class="right fas fa-angle-left"></i> </p> </a>
+                       <ul class="nav nav-treeview">
+            <li class="nav-item"> <a routerLink="createapp" class="nav-link"> <i class="far fa-circle nav-icon"></i> <p>Create Appointment</p></a> </li>
+            <li class="nav-item">  <a routerLink="readapp" class="nav-link"> <i class="far fa-circle nav-icon"></i>  <p>Read Appointment</p> </a> </li>
+            </ul></li>
 
-        <li  class="nav-item ml-2">
-          <a [routerLink]="['/back/rayon']" class="nav-link">
-            <i class="fas fa-road"></i>
-            <p>
-              MODULE2
-            </p>
-          </a>
-        </li>
-        <li  class="nav-item">
-          <a  [routerLink]="['/back/note']" class="nav-link">
-            <i class="nav-icon far fa-image"></i>
-            <p>
-              MODULE1
-            </p>
-          </a>
-        </li>
+            <li  class="nav-item menu" >
+              <a  href="#" class="nav-link active"> &nbsp;&nbsp;<i class="fas fa-award"></i>  <p> &nbsp;&nbsp; OFFRE  <i class="right fas fa-angle-left"></i>  </p> </a>
+                     <ul class="nav nav-treeview">
+                        <li class="nav-item"> <a routerLink="offre-list" routerLinkActive="active" class="nav-link active">Liste des offres
+                                   <span class="right badge badge-danger">Nouv Offre!</span>   </a>  </li>
+           <li class="nav-item">  <a routerLink="offre-add"  routerLinkActive="active" class="nav-link active">Ajouter un Offre </a>  </li>
+       </ul>  </li> 
+
+       
+      <li  class="nav-item ml-2">
+        <a [routerLink]="['/event']" class="nav-link">
+          <i class="fas fa-cubes"></i>
+          <p>
+            &nbsp;&nbsp;  Event
+          </p>
+        </a>
+      </li>
+
+
+      
+
+      <li  class="nav-item ml-2">
+        <a [routerLink]="['/space']" class="nav-link">
+          <i class="fas fa-road"></i>
+          <p>
+            &nbsp;&nbsp;  Space
+          </p>
+        </a>
+      </li>
+
+
+      <li  class="nav-item">
+        <a  [routerLink]="['/publicite']" class="nav-link">
+          <i class="nav-icon far fa-image"></i>
+          <p>
+               Advertising
+          </p>
+        </a>
+      </li>
+
+
+      <li  class="nav-item">
+        <a  [routerLink]="['/back/note']" class="nav-link">
+            &nbsp; <i class="far fa-id-badge"></i>
+          <p>
+            &nbsp;&nbsp; Candidat
+          </p>
+        </a>
+      </li>
+
+   
+                   
+
+ <li  class="nav-item">
+  <a  [routerLink]="['/back/note']" class="nav-link">
+    &nbsp; <i class="fa fa-book"></i>
+    <p>
+      &nbsp;&nbsp; Courses
+    </p>
+  </a>
+</li>
+
+
+<li  class="nav-item">
+  <a  [routerLink]="['/back/note']" class="nav-link">
+    &nbsp; <i class="fas fa-book-open"></i>
+    <p>
+      &nbsp;&nbsp; Quiz
+    </p>
+  </a>
+</li>
+
+
+
+
+
+<li  class="nav-item">
+  <a  [routerLink]="['/back/note']" class="nav-link">
+    &nbsp;  <i class="fas fa-bullhorn"></i>
+    <p>
+      &nbsp;&nbsp; Publicity
+    </p>
+  </a>
+</li>
+
+<li  class="nav-item">
+  <a  [routerLink]="['/back/note']" class="nav-link">
+    &nbsp;  <i class="far fa-sticky-note"></i>
+    <p>
+      &nbsp;&nbsp; Post
+    </p>
+  </a>
+</li>
+
+
+<li  class="nav-item">
+  <a  [routerLink]="['/back/note']" class="nav-link">
+    &nbsp;  <i class="fa fa-comments" aria-hidden="true"></i>
+    <p>
+      &nbsp;&nbsp;Comment
+    </p>
+  </a>
+</li>
      
         
         

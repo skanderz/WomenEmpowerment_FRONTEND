@@ -17,11 +17,10 @@ export class ModifierComponent implements OnInit {
 
   user: User ;
 
-  constructor(private userService: UserService,private token: TokenStorageService,private router: Router,private authService: AuthService) { }
+  constructor(private userService: UserService,private token: TokenStorageService,private router: Router,private authService: AuthService){}
 
-  ngOnInit(): void {
-    this.getUSer();
-  }
+  ngOnInit(): void { this.getUSer(); }   
+
 
   getUSer(): void{
     this.userService.getUser(this.token.getUser().id).subscribe(
@@ -53,7 +52,5 @@ export class ModifierComponent implements OnInit {
     
 }
 
-  onSubmit() {
-    this.updateUser();    
-  }
+  onSubmit() {  this.updateUser();     }
 }

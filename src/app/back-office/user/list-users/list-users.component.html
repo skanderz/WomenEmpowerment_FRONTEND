@@ -1,19 +1,8 @@
 <div class="container-m mt-5">
   <div class="input-group p-3">
-    <input
-      type="text"
-      class="form-control"
-      placeholder="SEARCH BY EMAIL"
-      [(ngModel)]="email"
-    />
+    <input  type="text"  class="form-control"  placeholder="SEARCH BY EMAIL"  [(ngModel)]="email" />
     <div class="input-group-append">
-      <button
-        class="btn btn-outline-secondary"
-        type="button"
-        (click)="searchTitle()"
-      >
-        Search
-      </button>
+      <button class="btn btn-outline-secondary" type="button"  (click)="searchTitle()"> Search </button>
     </div>
   <div> 
       <select class="form-select" aria-label="Default select example" (change)="onChangeCategorie($event,cat.value)" #cat>
@@ -36,6 +25,7 @@
         <th>ID</th>
         <th>EMAIL</th>
         <th>Categorie</th>
+        <th>Solde</th>
         <th>ROLE</th>
         <th>Action</th>
         
@@ -43,24 +33,13 @@
       
     </thead>
     <tbody>
-      <tr
-        *ngFor="
-          let user of users
-            | paginate
-              : {
-                  itemsPerPage: pageSize,
-                  currentPage: page,
-                  totalItems: count
-                };
-          let i = index
-        "
-        [class.active]="i == currentIndex"
-        (click)="setActiveTutorial(user, i)"
-      >
-        <th scope="row">{{ user.idClient }}</th>
-        <td>{{ user.email }}</td>
-        <td>{{ user.categorieClient }}</td>
-        <td > {{user.roles[0].name}} </td>
+      <tr *ngFor="  let user of users  | paginate : { itemsPerPage: pageSize,  currentPage: page, totalItems: count }; let i = index
+          " [class.active]="i == currentIndex" (click)="setActiveTutorial(user, i)">
+        <th scope="row">{{ user.iduser }} </th>
+        <td> {{ user.email }} </td>
+        <td> {{ user.categorieClient }} </td>
+        <td> {{ user.solde }}  </td>   
+        <td> {{ user.roles[0].name }} </td>
         <td class="d-flex "> 
           <select class="form-select" aria-label="Default select example" #act>
             <option selected>Action : </option>
@@ -68,7 +47,7 @@
             <option value="withhold_admin">Retirer de l'administration</option>
             <option value="delete">Supprimer</option>
           </select>
-          <app-user-action-button  [action]="act.value" [id]="user.idClient" (editedEmitter)=refreshUsers($event)></app-user-action-button>
+          <app-user-action-button  [action]="act.value" [id]="user.iduser" (editedEmitter)=refreshUsers($event)></app-user-action-button>
         </td>
       </tr>
     </tbody>
@@ -77,19 +56,15 @@
   <div class="d-flex flex-row-reverse bd-highlight mb-2">
     <div class="p-2 bd-highlight">
       <select (change)="handlePageSizeChange($event)" class="custom-select">
-        <option *ngFor="let size of pageSizes" [ngValue]="size">
-          {{ size }}
-        </option>
+        <option *ngFor="let size of pageSizes" [ngValue]="size">  {{ size }} </option>
       </select>
     </div>
   </div>
 
   <div class="pagination">
-    <pagination-controls
-      previousLabel="Prev"
-      nextLabel="Next"
-      [responsive]="true"
-      (pageChange)="handlePageChange($event)"
-    ></pagination-controls>
+  <pagination-controls  previousLabel="Prev"  nextLabel="Next" [responsive]="true" (pageChange)="handlePageChange($event)"></pagination-controls>           
   </div>
 </div>
+
+
+

@@ -9,10 +9,9 @@ import { Component, EventEmitter, Input, OnInit, Output, SimpleChange } from '@a
 })
 export class UserActionButtonComponent implements OnInit {
 
-  constructor(private userService : UserService,private router:Router ) { }
+  constructor(private userService : UserService ,private router:Router ) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
   @Input() action: string;
   @Input() id: number;
   @Output() editedEmitter = new EventEmitter<number>();
@@ -21,16 +20,10 @@ export class UserActionButtonComponent implements OnInit {
   
   onClickButton(event) {
 
-     if ( this.action=="delete" ) {
-      console.log("DELETE CLICKED ");
-      
-     }
-     if ( this.action=="make_admin" ) {
-      this.userService.assignAdmin(this.id);
-     }
-     if ( this.action=="withhold_admin" ) {
-      this.userService.withholdAdmin(this.id);
-     }
+     if ( this.action=="delete" ) { this.userService.delete(this.id); }
+     if ( this.action=="make_admin" ) { this.userService.assignAdmin(this.id); }
+     if ( this.action=="withhold_admin" ) {  this.userService.withholdAdmin(this.id);}
+     
     }
 
    /* ngOnChanges(changes: SimpleChange) {

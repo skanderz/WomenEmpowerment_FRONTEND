@@ -3,6 +3,23 @@ body{
     background-color: #f5f6f8;
     margin-top:20px;
 }
+
+
+
+
+.flex-container {
+    display: flex;
+  }
+  
+  .flex-container > div {
+    background-color: #f7f3f3;
+    margin: 30px; 
+    padding: 50px; 
+    border: 2px solid rgb(254, 198, 244);
+    border-radius: 50px 20px;
+  }
+
+
 .card-box {
     background-color: #fff;
     background-clip: border-box;

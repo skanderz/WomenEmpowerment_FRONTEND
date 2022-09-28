@@ -14,22 +14,25 @@ export class RegisterComponent implements OnInit {
     nom:null,
     prenom: null,
     dateNaissance:null,
-    categorieClient: 'Ordinaire'
+    categorieClient: 'Ordinaire',
+    solde :100, 
+    friendlist:"+" ,
+    friendrequest:"+" 
   }; 
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
 
   constructor(private authService: AuthService) { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-  }
+
 
   onSubmit(): void {
     //assigned form to object
-    const { username, email, password , nom , prenom , dateNaissance  , categorieClient } = this.form;
+    const { username, email, password , nom , prenom , dateNaissance  , categorieClient ,solde ,friendlist ,friendrequest } = this.form;
 
-    this.authService.register(username, email, password, nom, prenom , dateNaissance  , categorieClient ).subscribe(
+    this.authService.register(username, email, password, nom, prenom , dateNaissance  , categorieClient ,solde ,friendlist ,friendrequest).subscribe(
       data => {
         console.log(data);
         this.isSuccessful = true;

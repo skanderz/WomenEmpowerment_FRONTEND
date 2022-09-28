@@ -6,61 +6,48 @@ import { UserActionButtonComponent } from '../user-action-button/user-action-but
 @Component({
   selector: 'app-list-users',
   templateUrl: './list-users.component.html',
-  styleUrls: ['./list-users.component.css']
-})
+  styleUrls: ['./list-users.component.css']  })
+
+
+
 export class ListUsersComponent implements OnInit {
   users: User[] = [];
  // currentTutorial: User = {}; 
   currentIndex = -1;
   email = '';
   categorie ='';
+  solde = 0 ; 
   page = 1;
   count = 0;
   pageSize = 3;
   pageSizes = [3, 6, 9];
 
 
- isUidPresent :false;
+ isUidPresent: false;
 
- @Output() action :string;
+ @Output() action: string;
 
-  constructor(private userService : UserService,private router:Router    ) { }
+  constructor(  private userService : UserService   ,private router:Router ) { }
  
-  ngOnInit(): void {
-    this.retrieveUsers();
-  }
+  ngOnInit(): void {  this.retrieveUsers();  }
+  refreshUsers($event): void {  this.retrieveUsers(); }
+  onChangeCategorie(event ,cat:string){ this.categorie=cat; }
 
-  refreshUsers($event): void {
-    this.retrieveUsers();
-  }
-
-  onChangeCategorie(event,cat:string){
-    this.categorie=cat;
-  }
-
-   
-  getRequestParams(categorie: string ,email: string, page: number, pageSize: number): any {
+     
+  getRequestParams(categorie: string ,email: string, page: number, pageSize: number ,solde:number): any {
     let params: any = {};
 
-    if (email) {
-      params[`email`] = email;
-    }
-    if (categorie) {
-      params[`categorie`] = categorie;
-    }
-    if (page) {
-      params[`page`] = page - 1;
-    }
-
-    if (pageSize) {
-      params[`size`] = pageSize;
-    }
+    if (email) {  params[`email`] = email; }
+    if (solde) {  params[`solde`] = solde; }
+    if (categorie) {  params[`categorie`] = categorie;  }
+    if (page) {  params[`page`] = page - 1;  }
+    if (pageSize) {  params[`size`] = pageSize;  }
 
     return params;
   }
 
   retrieveUsers(): void {
-    const params = this.getRequestParams(this.categorie,this.email, this.page, this.pageSize);
+    const params = this.getRequestParams(this.categorie,this.email, this.page, this.pageSize ,this.solde);
  
     this.userService.getAll(params)
     .subscribe(
@@ -70,26 +57,13 @@ export class ListUsersComponent implements OnInit {
         this.count = totalItems;
         console.log(response);
       },
-      error => {
-        console.log(error);
-      });
+      error => { console.log(error);  });
   }
 
-  handlePageChange(event: number): void {
-    this.page = event;
-    this.retrieveUsers();
-  }
+  handlePageChange(event: number): void { this.page = event;  this.retrieveUsers(); }
+  handlePageSizeChange(event: any): void {  this.pageSize = event.target.value; this.page = 1; this.retrieveUsers(); }
 
-  handlePageSizeChange(event: any): void {
-    this.pageSize = event.target.value;
-    this.page = 1;
-    this.retrieveUsers();
-  }
-
-  searchTitle(): void {
-    this.page = 1;
-    this.retrieveUsers();
-  }
+  searchTitle(): void { this.page = 1;  this.retrieveUsers(); }
  /* refreshList(): void {
     this.retrieveUsers();
     this.currentTutorial = {};

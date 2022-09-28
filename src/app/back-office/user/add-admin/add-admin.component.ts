@@ -10,11 +10,11 @@ export class AddAdminComponent implements OnInit {
   id: any;
   constructor(private userService : UserService) { }
 
-  ngOnInit(): void { }
-  
+  ngOnInit(): void {}
+  assignAdmin(){  this.userService.assignAdmin(this.id);  console.log("called with id : "+ this.id) }
 
-  assignAdmin(){
-    this.userService.assignAdmin(this.id);
-    console.log("called with id : "+ this.id)
-  }
 }
+
+
+
+

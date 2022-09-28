@@ -2,7 +2,9 @@ import { CategorieClient } from "./CategorieClient";
 import { Role } from "./Role";
 
 export class User {
-    idClient: number;
+    iduser: number;
+    solde: number;
+    status :boolean;
     nom: string;
     prenom: string;
     username: string;
@@ -11,10 +13,10 @@ export class User {
     password: string;
     categorieClient: CategorieClient;
     roles: Role[];
+    requestlist: string;    
+    friendlist: string; 
 
-    get id(): number {
-        return this.idClient;
-    }
+    get id(): number {  return this.iduser;  }
 
     
     
